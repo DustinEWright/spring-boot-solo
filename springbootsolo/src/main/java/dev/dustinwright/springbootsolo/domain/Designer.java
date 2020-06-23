@@ -1,13 +1,15 @@
 package dev.dustinwright.springbootsolo.domain;
 
+import javax.persistence.Entity;
 import java.util.Set;
 
 /**
  * Created by DW 06/23/20
  */
+
 public class Designer {
 
-    private long id;
+    private Long id;
 
     private String firstName;
     private String lastName;

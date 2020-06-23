@@ -1,7 +1,7 @@
 package dev.dustinwright.springbootsolo.domain;
 
 public class Brand {
-    private long id;
+    private Long id;
     private String name;
     private String addressLine1;
     private String city;

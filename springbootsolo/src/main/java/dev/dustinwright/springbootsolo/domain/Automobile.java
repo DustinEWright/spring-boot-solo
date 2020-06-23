@@ -3,7 +3,7 @@ package dev.dustinwright.springbootsolo.domain;
 import java.util.Set;
 
 public class Automobile {
-    private long id;
+    private Long id;
     private String modelName;
     private String stockNumber;
     private Set<Designer> designers;
