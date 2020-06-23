@@ -13,7 +13,7 @@ import java.util.Set;
 public class Designer {
 
     @Id
-    @GeneratedValue(GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String firstName;
@@ -23,5 +23,33 @@ public class Designer {
     public Designer() {
     }
 
-  
+    public Designer(String firstName, String lastName, Set<Automobile> automobiles) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.automobiles = automobiles;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Set<Automobile> getAutomobiles() {
+        return automobiles;
+    }
+
+    public void setAutomobiles(Set<Automobile> automobiles) {
+        this.automobiles = automobiles;
+    }
 }

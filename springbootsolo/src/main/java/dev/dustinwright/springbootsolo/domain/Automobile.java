@@ -13,7 +13,7 @@ import java.util.Set;
 public class Automobile {
 
     @Id
-    @GeneratedValue(GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String modelName;
     private String stockNumber;
@@ -22,5 +22,33 @@ public class Automobile {
     public Automobile() {
     }
 
+    public Automobile(String modelName, String stockNumber, Set<Designer> designers) {
+        this.modelName = modelName;
+        this.stockNumber = stockNumber;
+        this.designers = designers;
+    }
 
+    public String getModelName() {
+        return modelName;
+    }
+
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
+    }
+
+    public String getStockNumber() {
+        return stockNumber;
+    }
+
+    public void setStockNumber(String stockNumber) {
+        this.stockNumber = stockNumber;
+    }
+
+    public Set<Designer> getDesigners() {
+        return designers;
+    }
+
+    public void setDesigners(Set<Designer> designers) {
+        this.designers = designers;
+    }
 }
