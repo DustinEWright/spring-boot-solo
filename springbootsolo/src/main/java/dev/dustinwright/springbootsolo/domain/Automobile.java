@@ -1,9 +1,6 @@
 package dev.dustinwright.springbootsolo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Set;
 
 /**
@@ -17,6 +14,10 @@ public class Automobile {
     private Long id;
     private String modelName;
     private String stockNumber;
+
+    @ManyToMany
+    @JoinTable(name = "designer_automobile", joinColumns = @JoinColumn("automobile_id"),
+            inverseJoinColumns = @JoinColumn(name = "designer_id"))
     private Set<Designer> designers;
 
     public Automobile() {
@@ -50,5 +51,30 @@ public class Automobile {
 
     public void setDesigners(Set<Designer> designers) {
         this.designers = designers;
+    }
+
+    @Override
+    public String toString() {
+        return "Automobile{" +
+                "id=" + id +
+                ", modelName='" + modelName + '\'' +
+                ", stockNumber='" + stockNumber + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        //Automobile that = (Automobile) o; what originally generated, why is unknown
+        Automobile automobile = (Automobile) o;
+        //return id != null ? id.equals(that.id) : that.id == null;
+
+        return id != null ? id.equals(automobile.id) : automobile.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
     }
 }

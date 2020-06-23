@@ -1,9 +1,6 @@
 package dev.dustinwright.springbootsolo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Set;
 
 /**
@@ -18,6 +15,8 @@ public class Designer {
 
     private String firstName;
     private String lastName;
+
+    @ManyToMany(mappedBy = "designers")
     private Set<Automobile> automobiles;
 
     public Designer() {
@@ -51,5 +50,29 @@ public class Designer {
 
     public void setAutomobiles(Set<Automobile> automobiles) {
         this.automobiles = automobiles;
+    }
+
+    @Override
+    public String toString() {
+        return "Designer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Designer designer = (Designer) o;
+
+        return id != null ? id.equals(designer.id) : designer.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
     }
 }
