@@ -12,6 +12,7 @@ public class Automobile {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
     private String modelName;
     private String stockNumber;
 
