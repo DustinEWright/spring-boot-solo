@@ -1,6 +1,7 @@
 package dev.dustinwright.springbootsolo.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -17,15 +18,14 @@ public class Designer {
     private String lastName;
 
     @ManyToMany(mappedBy = "designers")
-    private Set<Automobile> automobiles;
+    private Set<Automobile> automobiles = new HashSet<>();
 
     public Designer() {
     }
 
-    public Designer(String firstName, String lastName, Set<Automobile> automobiles) {
+    public Designer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.automobiles = automobiles;
     }
 
     public String getFirstName() {

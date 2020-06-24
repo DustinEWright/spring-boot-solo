@@ -1,6 +1,7 @@
 package dev.dustinwright.springbootsolo.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -19,15 +20,14 @@ public class Automobile {
     @ManyToMany
     @JoinTable(name = "designer_automobile", joinColumns = @JoinColumn("automobile_id"),
             inverseJoinColumns = @JoinColumn(name = "designer_id"))
-    private Set<Designer> designers;
+    private Set<Designer> designers = new HashSet<>();
 
     public Automobile() {
     }
 
-    public Automobile(String modelName, String stockNumber, Set<Designer> designers) {
+    public Automobile(String modelName, String stockNumber) {
         this.modelName = modelName;
         this.stockNumber = stockNumber;
-        this.designers = designers;
     }
 
     public String getModelName() {
