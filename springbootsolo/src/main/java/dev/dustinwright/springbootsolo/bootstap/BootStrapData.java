@@ -7,7 +7,6 @@ import dev.dustinwright.springbootsolo.repositories.AutomobileRepository;
 import dev.dustinwright.springbootsolo.repositories.BrandRepository;
 import dev.dustinwright.springbootsolo.repositories.DesignerRepository;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.stereotype.Component;
 
 /**
@@ -27,7 +26,8 @@ public class BootStrapData implements CommandLineRunner {
         this.designerRepository = designerRepository;
     }
 
-    Designer ford = new Designer("Bob", "Ford");
+    Designer ford = new Designer();
+    ford.setF
     Automobile lightning = new Automobile("F-150", "802A");
 
     ford.
