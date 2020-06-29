@@ -24,14 +24,12 @@ public class BootStrapData implements CommandLineRunner {
         this.automobileRepository = automobileRepository;
         this.brandRepository = brandRepository;
         this.designerRepository = designerRepository;
+
+        Designer ford = new Designer("Bob", "Ford");
+        Automobile lightning = new Automobile("F-150", "802A");
+        ford.getAutomobiles().add(lightning);
+        lightning.getDesigners().add(ford);
     }
-
-    Designer ford = new Designer();
-    ford.setF
-    Automobile lightning = new Automobile("F-150", "802A");
-
-    ford.
-
     @Override
     public void run(String... args) throws Exception {
         System.out.println("Hello World!");
